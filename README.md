@@ -31,7 +31,7 @@ streamlit run app.py
 
 # About the Example Data
 
-The example data is an open-source bank customer dataset. The schema of the data is as below:
+The example dataset.csv is an open-source bank customer dataset. The schema of the data is as below:
 
 -   `Customer ID`: A unique identifier for each customer
 -   `Surname`: The customer's surname or last name
@@ -47,4 +47,4 @@ The example data is an open-source bank customer dataset. The schema of the data
 -   `EstimatedSalary`: The estimated salary of the customer
 -   `Exited`: Whether the customer has churned (1 = yes, 0 = no)
 
-**_You can change it to your own data, and the app will work as well._**
+### _You can replace it to your own dataset, and the APP will work as well._

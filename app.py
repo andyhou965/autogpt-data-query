@@ -1,4 +1,6 @@
 import os
+import re
+
 from apikey import API_KEY
 
 import streamlit as st
@@ -38,15 +40,38 @@ def main():
 
         llm = OpenAI(temperature=0)  # type: ignore
 
-        agent = create_csv_agent(llm, filepath, verbose=True)
+        agent = create_csv_agent(
+            llm, filepath, return_intermediate_steps=True, verbose=True
+        )
 
-        prompt = st.text_input('Describe your data query here to get the result:')
+        prompt = st.text_input('Describe your data query here to get the result')
 
         if prompt:
-            result = agent.run(prompt)  # type: ignore
-
+            # result = agent.run(prompt)  # type: ignore
+            response = agent({"input": prompt})  # type: ignore
+            result = response["output"]
             st.write(user_template.replace("{{MSG}}", prompt), unsafe_allow_html=True)
             st.write(bot_template.replace("{{MSG}}", result), unsafe_allow_html=True)
+
+            intermediate_steps = response["intermediate_steps"]
+            tool_inputs = [item[0].tool_input for item in intermediate_steps]  # type: ignore
+
+            for tool_input in tool_inputs:
+                match = re.search("to_csv\('(.*)'\)", tool_input)
+                if match:
+                    result_file = match.group(1)
+                    with open(result_file, "rb") as file:
+                        st.download_button(
+                            label=f"Download {result_file}",
+                            data=file,
+                            file_name=result_file,
+                            mime='text/csv',
+                        )
+
+                    os.remove(result_file)
+
+            # with st.expander('Intermediate Steps'):
+            #     st.info(intermediate_steps)
     else:
         st.warning("Please upload a dataset first!")
 

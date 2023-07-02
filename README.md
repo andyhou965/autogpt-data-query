@@ -1,12 +1,18 @@
 # Auto GPT: Data Query using Natural Language
 
 This is an Auto GPT APP for query your own data using natural language.
-All you need to do is to descript the query in natural language, and the app will get the result for you.
+All you need to do is to upload your dataset, then descript the query in natural language, the app will get the result for you.
 
-![Alt text](images/demo1.png "Demo Instruction")
-![Alt text](images/demo2.png "Demo Instruction")
-![Alt text](images/demo3.png "Demo Instruction")
-![Alt text](images/demo4.png "Demo Instruction")
+## Demo
+
+![Alt text](images/demo.png "Demo")
+
+### Query Description Examples
+
+![Alt text](images/demo1.png "Example 01")
+![Alt text](images/demo2.png "Example 02")
+![Alt text](images/demo3.png "Example 03")
+![Alt text](images/demo4.png "Example 04")
 
 ## How to use
 
@@ -29,7 +35,7 @@ streamlit run app.py
 -   `What is the total number of customers in each country?`
 -   `Show to customer that have top 10 credit score?`
 
-# About the Example Data
+# About the Example Dataset
 
 The example dataset.csv is an open-source bank customer dataset. The schema of the data is as below:
 

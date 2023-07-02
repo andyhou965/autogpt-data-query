@@ -14,6 +14,10 @@ All you need to do is to upload your dataset, then descript the query in natural
 ![Alt text](images/demo3.png "Example 03")
 ![Alt text](images/demo4.png "Example 04")
 
+**Also support save the query result as csv file, then download it.**
+
+![Alt text](images/demo5.png "Example 05")
+
 ## How to use
 
 ### Step 1: Install the requirements

@@ -21,7 +21,4 @@ agent = create_csv_agent(llm, filepath, verbose=True)
 
 if prompt:
     result = agent.run(prompt)
-    # agent.run("What is the total number of customers in each country?")
-    # agent.run("Show to customer that have top 10 credit score?")
-
     st.write(result)

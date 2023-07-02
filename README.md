@@ -6,6 +6,7 @@ All you need to do is to descript the query in natural language, and the app wil
 ![Alt text](images/demo1.png "Demo Instruction")
 ![Alt text](images/demo2.png "Demo Instruction")
 ![Alt text](images/demo3.png "Demo Instruction")
+![Alt text](images/demo4.png "Demo Instruction")
 
 ## How to use
 

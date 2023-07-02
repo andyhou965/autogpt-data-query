@@ -11,7 +11,7 @@ st.title('Auto Data Query')
 
 prompt = st.text_input('Describe your data query here to get the result:')
 
-filepath = "data/bank_customer_data.csv"
+filepath = "data/dataset.csv"
 loader = CSVLoader(filepath)
 data = loader.load()
 

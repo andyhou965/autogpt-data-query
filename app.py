@@ -38,7 +38,7 @@ def main():
         loader = CSVLoader(filepath)
         data = loader.load()
 
-        llm = OpenAI(temperature=0)  # type: ignore
+        llm = OpenAI(temperature=0)
 
         agent = create_csv_agent(
             llm, filepath, return_intermediate_steps=True, verbose=True
@@ -47,14 +47,14 @@ def main():
         prompt = st.text_input('Describe your data query here to get the result')
 
         if prompt:
-            # result = agent.run(prompt)  # type: ignore
-            response = agent({"input": prompt})  # type: ignore
+            # result = agent.run(prompt)
+            response = agent({"input": prompt})
             result = response["output"]
             st.write(user_template.replace("{{MSG}}", prompt), unsafe_allow_html=True)
             st.write(bot_template.replace("{{MSG}}", result), unsafe_allow_html=True)
 
             intermediate_steps = response["intermediate_steps"]
-            tool_inputs = [item[0].tool_input for item in intermediate_steps]  # type: ignore
+            tool_inputs = [item[0].tool_input for item in intermediate_steps]
 
             for tool_input in tool_inputs:
                 match = re.search("to_csv\('(.*)'\)", tool_input)
